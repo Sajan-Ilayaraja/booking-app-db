@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { MongoClient, ObjectId } = require("mongodb");
+const dotenv = require("dotenv").config();
+const URL = process.env.DB;
 
 const DB_NAME = "movie_db";
 
@@ -14,7 +16,7 @@ app.use(cors({
 // Step 1. Connect the Database
 app.get("/movie/get-movies", async (req, res) => {
   try {
-    const client = new MongoClient("mongodb+srv://sajanilayaraja007:1KbvzvzSPMomppr8@cluster0.axgm8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {}).connect()
+    const client = new MongoClient(URL, {}).connect()
 
     // Step 2. Select the DB
     let db = (await client).db(DB_NAME);
@@ -43,7 +45,7 @@ app.get("/movie/:id", async (req, res) => {
     const id = req.params.id;
 
     // Step 1. Connect the Database
-    const client = new MongoClient("mongodb+srv://sajanilayaraja007:1KbvzvzSPMomppr8@cluster0.axgm8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {}).connect();
+    const client = new MongoClient(URL, {}).connect();
 
     // Step 2. Select the DB
     let db = (await client).db(DB_NAME);
