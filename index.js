@@ -3,7 +3,8 @@ const app = express();
 const cors = require("cors");
 const { MongoClient, ObjectId } = require("mongodb");
 const dotenv = require("dotenv").config();
-const URL = process.env.DB;
+const URL = process.env.DB || "mongodb+srv://sajanilayaraja007:1KbvzvzSPMomppr8@cluster0.axgm8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";  // Add fallback
+
 
 const DB_NAME = "movie_db";
 
