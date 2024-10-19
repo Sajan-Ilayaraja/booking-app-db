@@ -101,7 +101,6 @@ app.post("/movie/book-movie", async (req, res) => {
      * If the avilable seat is less than requested seat a:10 r:11
      * Throw error
      * Else book the seat
-     * 
      */
     console.log(bookingRequest.movieId);
     let movie = await dbcollection.findOne({
@@ -175,4 +174,4 @@ app.post("/movie/book-movie", async (req, res) => {
   // "2" < 0 ->
 });
 
-app.listen(7000);
+app.listen(8000);
