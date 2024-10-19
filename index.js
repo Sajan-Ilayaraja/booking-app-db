@@ -121,7 +121,7 @@ app.post("/movie/book-movie", async (req, res) => {
     }
 
     if (parseInt(show.seats) < requestedSeat) {
-      return res.status(400).json({ message: "No enough seats avilable" });
+      return res.status(404).json({ message: "No enough seats avilable" });
     }
 
     const updateSeats = parseInt(show.seats) - requestedSeat;
